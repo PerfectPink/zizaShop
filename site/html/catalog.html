@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../js/catalog.js"></script>
+    <title>zizaShop catalog</title>
+</head>
+<body>
+    <header>
+        <nav>ВЕРХНЯЯ НАВИГАЦИОННАЯ ПАНЕЛЬ</nav>
+    </header>
+    <!-- секция со всем -->
+    <section>  
+
+        <div>
+            <!--панель с фильтром по производителям  -->
+            <button onclick="filterRender('Fruit_Ninja', 'brand')" >Fruit_Ninja</button>
+            <button onclick="filterRender('Uncle_Baker', 'brand')" >Uncle_Backer</button>
+            <button onclick="filterRender('60/40', 'pgvg')" >60/40</button>
+            <button onclick="filterRender('30/70', 'pgvg')" >'30/70'</button>
+
+            <button onclick="filterRender()" >empty(no filter)</button>
+        </div>
+        <div>
+            <!-- тут фильтры + товары -->
+            <div>
+                <!-- фильтры слева -->
+            </div>
+            <div id="goodsPlacement">
+                <!-- товары справа -->
+            </div>
+        </div>
+    </section>
+    <template id="tmp-contentblock-item">
+        <div class="contentblock-item">
+            <img src="temp/img/--article.jpg" alt="">
+            <span>--brand</span>
+            <span>--title</span>
+            <span>--taste</span>
+            <span>--size ml</span>
+            <span>--pgvg PG/VG</span>
+            <span>--price Руб.</span>
+            <button class="main-button" onclick="cartadd(--article)" >В Корзину</button>
+        </div>
+    </template>
+</body>
+</html>
