@@ -14,19 +14,19 @@ function renderList() {
     // });
 
     for (let count = 0; count < 8; count++) {
-        targetPlace.innerHTML += tmpl.innerHTML.replace('--title',db[count].title)
-        .replace('--taste',db[count].taste)
-        .replace('--size',db[count].size)
-        .replace('--pgvg',db[count].pgvg)
-        .replace('--price',db[count].price)
-        .replace('--article',db[count].id)
-        .replace('--article',db[count].id)
+        targetPlace.innerHTML += tmpl.innerHTML.replace('--title', db[count].title)
+            .replace('--taste', db[count].taste)
+            .replace('--size', db[count].size)
+            .replace('--pgvg', db[count].pgvg)
+            .replace('--price', db[count].price)
+            .replace('--article', db[count].id)
+            .replace('--article', db[count].id)
     }
 
 }
 
 function getdb() {
-    let url = 'http://localhost:8090/api/get/?getdb';
+    let url = 'http://localhost:80/api/get/?getdb';
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, false);
     xhr.send()
@@ -35,8 +35,12 @@ function getdb() {
     return dblist;
 }
 
-function cartadd(goodId){
-    console.log(goodId);
-}
+
 
 window.onload = renderList()
+window.onload = checkCartStorage()
+window.onload = cartAmountCounter()
+//dev 
+function clearLs() {
+    window.localStorage.clear()
+}

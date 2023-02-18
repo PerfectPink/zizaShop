@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/main.css">
+    <script defer src="js/general.js"></script>
     <script defer src="js/main.js"></script>
+    <script defer src="js/cart.js"></script>
     <title>ZizaShop</title>
 </head>
 
@@ -18,7 +20,12 @@
             <span>link 1</span>
             <span>link 2</span>
             <span>link 3</span>
-            <span>link 3</span>
+            <div class="nav-cart">
+                <a href="html/cart.html">
+                    <span>Корзина</span>
+                    <span id="cartCount">0</span>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -28,7 +35,7 @@
 
 
         <div class="catalog-button">
-            <a href="http://localhost:8090/html/catalog.html"><button>ПЕРЕЙТИ В КАТАЛОГ--------------------------------------></button></a>
+            <a href="html/catalog.html"><button>ПЕРЕЙТИ В КАТАЛОГ--------------------------------------></button></a>
         </div>
         
 
@@ -43,7 +50,7 @@
                 <span>--size ml</span>
                 <span>--pgvg PG/VG</span>
                 <span>--price Руб.</span>
-                <button class="main-button" onclick="cartadd(--article)" >В Корзину</button>
+                <button class="main-button" onclick="toCart(--article)" >В Корзину</button>
             </div>
         </template>
     </main>

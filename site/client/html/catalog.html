@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../js/general.js"></script>
+    <script defer src="../js/cart.js"></script>
     <script defer src="../js/catalog.js"></script>
-    <title>zizaShop catalog</title>
+    
+    <title>zizaShop Каталог</title>
 </head>
 <body>
     <header>
         <nav>ВЕРХНЯЯ НАВИГАЦИОННАЯ ПАНЕЛЬ</nav>
+        <a href="cart.html" id="cartShortcut"><span>Корзина</span> <span id="cartCount">0</span></a>
     </header>
     <!-- секция со всем -->
     <section>  
@@ -42,7 +46,7 @@
             <span>--size ml</span>
             <span>--pgvg PG/VG</span>
             <span>--price Руб.</span>
-            <button class="main-button" onclick="cartadd(--article)" >В Корзину</button>
+            <button class="main-button" onclick="toCart(--article)">В Корзину</button>
         </div>
     </template>
 </body>

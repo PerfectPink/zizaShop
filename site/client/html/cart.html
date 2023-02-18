@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script defer src="../js/general.js"></script>
+    <script defer src="../js/cartInterface.js"></script>
+    <title>zizaShop Корзина</title>
+</head>
+<body>
+    <div>
+        <a href="http://localhost/client/html/catalog.html">Каталог</a>
+    </div>
+    <p>Корзина</p>
+    <div id="cartblock">
+        <section>
+            <p>товары</p>
+            <div id="goodsPlacement"></div>
+        </section>
+        <section>
+            цена
+            <div id="priceTotal">
+
+            </div>
+        </section>
+    </div>
+    <section>
+        <input type="text" placeholder="Введите адрес" id="adressInput" >
+        <button onclick="makeOrder()">Заказать</button>
+        
+
+    </section>
+    <template id="itemCard">
+        <div data-article="--article">
+            <img src="" alt="">
+            <span>--title</span>
+            <span>--price</span>
+            <span>--amount</span>
+            <button onclick="addItem(this)">+</button>
+            <button onclick="deleteItem(this,'single')">-</button>
+            <button onclick="deleteItem(this,'all')">Удалить</button>
+        </div>
+    </template>
+    <template id="tmpl-empty-cart">
+        <div>
+            <p>Корзина пуста</p>
+        </div>
+    </template>
+</body>
+</html>
