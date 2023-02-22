@@ -1,0 +1,21 @@
+.hidden{
+    display: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+form *{
+    width: 50%;
+}
+form button{
+    width: 100%;
+}
+.errorcolor{
+    color: red;
+}
+.successcolor{
+    color: green;
+}

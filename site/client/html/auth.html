@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../js/auth.js"></script>
+    <script defer src="../js/general.js"></script>
+    <link rel="stylesheet" href="../css/auth.css">
+
+    <title>zizashop auth</title>
+</head>
+<body>
+    <section id="formSection">
+        <button onclick="authForm()">Войти</button>
+        <button onclick="regForm()">Регистрация</button>
+    </section>
+    
+
+
+
+    <template id="tempRegForm">
+        <form action="">
+            <input type="text" name="username" id="regLogin" value="" placeholder="Логин">
+            <input type="password" name="password" id="pass1" placeholder="Пароль">
+            <input type="password" name="" id="pass2" placeholder="Подтвердите пароль">
+            <input type="email" name="usermail" id="regEmail" placeholder="Почта">
+            <span id="responseToUser" class="hidden">Пароли не совпадают</span>
+            <input onclick="regsubmit()" type="button" value="Подтвердить">
+        </form>
+        <button onclick="authForm()">Обратно ко входу</button>
+    </template>
+    <template id="tempAuthForm">
+        <form action="">
+            <input type="text" name="authLogin" id="userlogin">
+            <input type="password" name="authPass" id="userpass">
+            <input onclick="loginSubmit()" type="button" value="Войти">
+            <span id="loginMessageToUser" class="hidden"></span>
+        </form>
+        <button onclick="regForm()">Зарегестрироваться</button>
+    </template>
+    
+    
+</body>
+</html>
