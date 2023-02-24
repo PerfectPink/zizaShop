@@ -37,13 +37,29 @@ INSERT INTO `goods` (`id`, `brand`, `title`, `taste`, `size`, `pgvg`, `price`, `
 (14,	'Vegas',	'Billie Jean',	'Сигара, Табак, Вишня',	50,	'30/70',	680,	'БВР'),
 (15,	'Vegas',	'Scream',	'Кулер, Клюква',	50,	'30/70',	680,	'БВР');
 
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(312) COLLATE utf8mb4_general_ci NOT NULL,
+  `orderlist` json NOT NULL,
+  `status` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `orders` (`id`, `username`, `address`, `orderlist`, `status`) VALUES
+(6,	'4444',	'test address',	'[{\"id\": 2, \"amount\": 10}, {\"id\": 3, \"amount\": 3}]',	NULL),
+(7,	'inordic',	'adress 1',	'[{\"id\": 6, \"amount\": 3}, {\"id\": 7, \"amount\": 3}, {\"id\": 8, \"amount\": 2}, {\"id\": 4, \"amount\": 3}, {\"id\": 5, \"amount\": 1}]',	NULL),
+(8,	'test',	'fsdfdsfdsfdsfsdfds',	'[{\"id\": 6, \"amount\": 3}, {\"id\": 7, \"amount\": 3}, {\"id\": 8, \"amount\": 2}, {\"id\": 4, \"amount\": 3}, {\"id\": 5, \"amount\": 1}]',	NULL);
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `usermail` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `address` varchar(512) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `userhash` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -59,12 +75,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `usermail`, `address`, `userh
 (9,	'sadsadsadsadad',	'injY8GPhDQhbc',	'dddasdasdasdasdasd',	NULL,	NULL),
 (10,	'eeqweqewqewqewq',	'inWPOR3V7AGRU',	'dadadadadadadaada',	NULL,	NULL),
 (11,	'jaja',	'injY8GPhDQhbc',	'jaja@mail.ru',	NULL,	NULL),
-(12,	'hui',	'in8YW0RS98tSY',	'ffsfdds',	NULL,	NULL),
-(13,	'gandon',	'injY8GPhDQhbc',	'gandon@mail.ru',	NULL,	NULL),
-(14,	'gandon2',	'injY8GPhDQhbc',	'grisha@mail.ru',	NULL,	NULL),
 (15,	'',	'inWSYLbKCoLko',	'',	NULL,	NULL),
-(16,	'test',	'inpo6Syn5OpQ6',	'test@mail.ru',	NULL,	'in6XpqZWgYLDU'),
+(16,	'test',	'inpo6Syn5OpQ6',	'test@mail.ru',	NULL,	''),
 (17,	'dasdasdadadadadadadsdsadasd',	'inqFEyEx8yjfM',	'sdascx',	NULL,	NULL),
-(18,	'xxx',	'inUdIDT0t6EYg',	'xxx',	NULL,	'inp1.MhM2bSw.');
+(18,	'xxx',	'inUdIDT0t6EYg',	'xxx',	NULL,	''),
+(19,	'login',	'injqk4zz3nke6',	'hui@mail.ru',	NULL,	''),
+(20,	'4444',	'inIaLvWFZZ47k',	'4444',	'dasdadadasd',	''),
+(21,	'inordic',	'injqk4zz3nke6',	'inordic@mail.ru',	'adress 1',	'');
 
--- 2023-02-22 17:24:44
+-- 2023-02-24 20:58:56
