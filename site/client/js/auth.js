@@ -102,6 +102,7 @@ function tokensave(statusResponse){
             userMessage.classList.toggle('successcolor')
         }
         userMessage.innerHTML = 'Успешный вход'
+        saveUsername()
         setTimeout(function() {
             window.location.reload();
         }, 2000);
@@ -119,4 +120,15 @@ function tokensave(statusResponse){
         }
         userMessage.innerHTML = response.error
     }
+}
+function saveUsername(){
+    let token = getCookie('token')
+    let url = '//localhost/auth/username/index.php';
+    xhr = new XMLHttpRequest();
+    xhr.open('POST', url, false)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('token=' + token)
+    let responseUsername = xhr.responseText;
+    responseUsername = JSON.parse(responseUsername)
+    localStorage.setItem('username',responseUsername.username)
 }

@@ -1,0 +1,12 @@
+.cursourhover{
+    cursor: pointer;
+}
+.authlink{
+    text-decoration: none;
+    color: blue;
+}
+#usernameSpace{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}

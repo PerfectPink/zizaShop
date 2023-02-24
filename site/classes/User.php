@@ -80,6 +80,27 @@ class User extends Unit
   public static function logout()
   {
     $pdo = \Connection::getConnection();
-    $result = $pdo->query("UPDATE users SET user_hash = '' WHERE user_hash = '" . $_POST['token'] . "'");
+    $pdo->query("UPDATE users SET userhash = '' WHERE userhash = '" . $_POST['token'] . "'");
+  }
+  public static function getUsername(){
+    $pdo = \Connection::getConnection();
+    $sqlText = $pdo->query("SELECT username from users WHERE userhash ='" . $_POST['token'] . "'");
+    $result = $sqlText->fetch();
+    return $result;
+  }
+
+  //------------------------------------------------------------------------------
+
+  public static function saveaddress(){
+    $pdo = \Connection::getConnection();
+    $address = $_POST['address'];
+    $token = $_POST['token'];
+    $pdo->query("UPDATE users SET address = '$address' WHERE userhash ='$token'");
+    return;
+  }
+  public static function getaddress(){
+    $pdo = \Connection::getConnection();
+    $result = $pdo->query("SELECT address FROM users WHERE userhash ='" . $_POST['token'] . "'")->fetch();
+    echo $result['address'];
   }
 }
