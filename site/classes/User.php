@@ -70,7 +70,7 @@ class User extends Unit
   public static function validate(): bool
   {
     $pdo = \Connection::getConnection();
-    $result = $pdo->query("SELECT COUNT(*) as num FROM users WHERE user_hash = '" . $_POST['token'] . "'");
+    $result = $pdo->query("SELECT COUNT(*) as num FROM users WHERE userhash = '" . $_POST['token'] . "'");
     $row = $result->fetch();
     if ($row['num'] > 0) {
       return true;
@@ -103,4 +103,27 @@ class User extends Unit
     $result = $pdo->query("SELECT address FROM users WHERE userhash ='" . $_POST['token'] . "'")->fetch();
     echo $result['address'];
   }
+
+  public static function getUserInfo(){
+    $pdo = \Connection::getConnection();
+    $token = $_POST['token'];
+    $result = $pdo->query("SELECT username,usermail,address FROM users WHERE userhash ='$token'")->fetch();
+    if(isset($_POST['shortinfo'])){
+      return json_encode($result, JSON_UNESCAPED_UNICODE);
+    }
+    $orderCount = $pdo->query("SELECT COUNT(*) as num FROM orders WHERE username =" . "'" . $result['username'] . "'")->fetch();
+    if ($orderCount['num'] > 0) {
+      $userOrders = $pdo->query("SELECT id,orderlist,address,status,date FROM orders WHERE username =" . "'" . $result['username'] . "'")->fetchALL();
+      $output = [
+        'userinfo' => $result,
+        'userorders' => $userOrders
+      ];
+      $output = json_encode($output, JSON_UNESCAPED_UNICODE);
+      return $output;
+    }else{
+      $result = json_encode($result, JSON_UNESCAPED_UNICODE);
+      return $result;
+    }
+    // return $result;
+  } 
 }

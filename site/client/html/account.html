@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <script defer src="../js/general.js"></script>
+    <script defer src="../js/account.js"></script>
+    <title>zizaShop account</title>
+</head>
+<body>
+    <section id="accountPageContent">
+        
+    </section>
+    <template id="userAccount-tmpl">
+        <section>
+            <div>
+                <!-- menu -->
+                <button onclick="renderMyAccount()">Мой профиль</button>
+                <button onclick="renderMyOrders()">Мои заказы</button>
+                <button onclick="rebderChangePassword()">Сменить пароль</button>
+                <button onclick="renderDeleteAccount()">Удалить аккаунт</button>
+            </div>
+            <div id="renderAccTask">
+
+            </div>
+        </section>
+    </template>
+    <template id="authForm-tmpl">
+        <p>Вам необходимо войти или пройти регистарцию</p>
+        <p>Вы можете это сделать<a href="http://localhost/client/html/auth.html"> здесь</a></p>
+    </template>
+    <template id="accInfo-tmpl">
+        <div>
+            <div>когда нибудь появится изоображение</div>
+            <p>--username</p>
+            <p>--usermail</p>
+            <p>--useraddress</p>
+        </div>
+    </template>
+    </template>
+    <template id="singleOrder-tmpl">
+        <div class="orderDiv">
+            <div>
+                <span>--address</span>
+                <span>--date</span>
+                <span>--status</span>
+                <div></div>
+                <button onclick="fullOrderList(--id)">V</button>
+                <div id="hiddenOrder--id" class="hidden">
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="orderListing-tmpl">
+        <span>
+            <p>++id</p>
+            <p>++amount</p>
+        </span>
+    </template>
+</body>
+</html>

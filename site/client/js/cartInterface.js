@@ -106,7 +106,7 @@ function makeOrder() {
     let userOrderItems = localStorage.getItem('cartStorage') //локал сторадж
     userOrderItems = JSON.stringify(userOrderItems)
     let useradress = document.getElementById('adressInput').value // адрес
-    let username = 'admin'
+    // let username = 'admin'
     if (useradress == null || useradress == "" || totalPrice == 0) {
         console.log('adress is empty or cart is empty');
         return
@@ -126,9 +126,9 @@ function makeOrder() {
     xhr.open('POST', '//localhost/handler/Order.php', false)
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(orderData)
-    lsCart = []
-    saveLs()
-    renderCart()
+    // lsCart = []
+    // saveLs()
+    // renderCart()
 }
 
 function saveUserAddress() {
